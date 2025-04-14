@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Meses de Amor - Para Mi Princesa</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #444;
+            background-color: #fef6f6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .landscape {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            background: linear-gradient(to bottom, #a8e6ff 0%, #d8f8ff 40%, #f5fff5 100%);
+            padding-bottom: 50px;
+            overflow: hidden;
+        }
+        
+        .sky {
+            height: 40vh;
+            width: 100%;
+            position: relative;
+            background: linear-gradient(to bottom, #68c4ff 0%, #b6e6ff 100%);
+        }
+        
+        .sun {
+            position: absolute;
+            top: 50px;
+            right: 100px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #FFD700 30%, transparent 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 60px #FFD700;
+            z-index: 1;
+        }
+        
+        .field {
+            width: 100%;
+            min-height: 60vh;
+            position: relative;
+            background: linear-gradient(to bottom, #7cba5a 0%, #5e8e3e 100%);
+            padding-top: 120px;
+        }
+        
+        .content-box {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 20;
+        }
+        
+        .dedication-card {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin: 0 20px;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #c62828;
+            font-size: 3.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            line-height: 1.2;
+        }
+        
+        .message p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #555;
+        }
+        
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            text-align: right;
+            margin-top: 40px;
+            color: #c62828;
+            font-style: italic;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+        
+        .photo-frame {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 220px;
+            position: relative;
+        }
+        
+        .photo-frame:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .photo-frame:hover .photo {
+            transform: scale(1.1);
+        }
+        
+        /* Flores ultra realistas */
+        .flower {
+            position: absolute;
+            z-index: 10;
+            pointer-events: none;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+        }
+        
+        /* Animaciones */
+        @keyframes gentleSway {
+            0%, 100% { transform: rotate(-2deg) translateY(0); }
+            50% { transform: rotate(2deg) translateY(-5px); }
+        }
+        
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(180deg); opacity: 0; }
+        }
+        
+        .petal {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: floatUp 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="landscape">
+        <div class="sky">
+            <div class="sun"></div>
+            <div id="floating-hearts"></div>
+        </div>
+        
+        <div class="field" id="flower-field">
+            <!-- Flores se generarán aquí con JavaScript -->
+        </div>
+        
+        <div class="content-box">
+            <div class="dedication-card">
+                <h1>Cinco Meses de Felicidad</h1>
+                
+                <div class="message">
+                    <p>Mi adorada Cachetona, mi niña hermosa,</p>
+                    
+                    <p>Estos cinco meses contigo han sido como caminar por el campo más florido, donde cada día descubro nuevas razones para amarte más. Eres el jardín más bello que ha crecido en mi vida.</p>
+                    
+                    <p>Mi enana consentida, como estas rosas que nunca se marchitan, mi amor por ti crece más fuerte cada día. Eres mi Lucerito, esa luz que ilumina hasta el rincón más oscuro de mi ser.</p>
+                    
+                    <p>Ardillita traviesa, estas flores rojas son solo un pálido reflejo de la pasión que siento por ti. Cada pétalo representa un momento especial que hemos compartido.</p>
+                    
+                    <p>Que este sea solo el comienzo de una eternidad juntos, donde nuestro amor florezca como el campo en primavera.</p>
+                    
+                    <div class="signature">Para ti, con todo mi corazón</div>
+                </div>
+                
+                <div class="gallery" id="photo-gallery">
+                    <!-- Fotos se insertarán aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Generador de flores hiperrealistas
+        const flowerField = document.getElementById('flower-field');
+        
+        // Tipos de flores con SVG complejos
+        const roseSVG = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200" class="rose">
+            <!-- Tallo -->
+            <path d="M50 120 Q55 150 48 180 Q45 160 50 200" stroke="#2E7D32" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M50 120 L50 200" stroke="#1B5E20" stroke-width="2" fill="none" stroke-linecap="round"/>
+            
+            <!-- Hojas -->
+            <path d="M50 140 Q60 130 70 145 Q65 150 50 160 Z" fill="#4CAF50" stroke="#2E7D32" stroke-width="0.5"/>
+            <path d="M50 160 Q35 150 30 165 Q40 170 50 175 Z" fill="#4CAF50" stroke="#2E7D32" stroke-width="0.5"/>
+            
+            <!-- Rosa -->
+            <path d="M50 30 Q60 20 70 30 Q80 40 70 50 Q60 60 50 50 Q40 60 30 50 Q20 40 30 30 Q40 20 50 30 Z" fill="#F44336"/>
+            <path d="M50 40 Q55 35 60 40 Q65 45 60 50 Q55 55 50 50 Q45 55 40 50 Q35 45 40 40 Q45 35 50 40 Z" fill="#E53935"/>
+            <path d="M50 50 Q55 45 60 50 Q55 55 50 60 Q45 55 50 50 Z" fill="#C62828"/>
+            <circle cx="50" cy="50" r="5" fill="#FFD54F"/>
+            
+            <!-- Pétalos externos -->
+            <path d="M50 20 Q60 10 70 20 Q75 25 70 35 Q60 30 50 35 Q40 30 30 35 Q25 25 30 20 Q40 10 50 20 Z" fill="#EF5350" opacity="0.8"/>
+            <path d="M50 15 Q65 5 80 15 Q85 20 75 40 Q60 35 50 40 Q40 35 25 40 Q15 20 20 15 Q35 5 50 15 Z" fill="#E57373" opacity="0.6"/>
+        </svg>`;
+        
+        const tulipSVG = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200" class="tulip">
+            <!-- Tallo -->
+            <path d="M50 100 L50 200" stroke="#388E3C" stroke-width="3" fill="none"/>
+            
+            <!-- Hojas -->
+            <path d="M50 120 Q60 110 70 125 Q65 130 50 140 Z" fill="#81C784" stroke="#4CAF50" stroke-width="0.8"/>
+            <path d="M50 150 Q40 140 35 155 Q40 160 50 165 Z" fill="#81C784" stroke="#4CAF50" stroke-width="0.8"/>
+            
+            <!-- Tulipán -->
+            <path d="M50 30 Q70 10 90 30 Q85 50 70 60 Q50 70 30 60 Q15 50 10 30 Q30 10 50 30 Z" fill="#E53935"/>
+            <path d="M50 40 Q65 30 80 40 Q75 50 65 55 Q50 60 35 55 Q25 50 20 40 Q35 30 50 40 Z" fill="#C62828"/>
+            <path d="M50 50 Q60 45 70 50 Q65 55 50 60 Q35 55 30 50 Q40 45 50 50 Z" fill="#B71C1C"/>
+        </svg>`;
+        
+        const poppySVG = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200" class="poppy">
+            <!-- Tallo -->
+            <path d="M50 80 L50 200" stroke="#43A047" stroke-width="2.5" fill="none"/>
+            
+            <!-- Amapola -->
+            <circle cx="50" cy="50" r="30" fill="#D32F2F"/>
+            <circle cx="50" cy="50" r="25" fill="#E53935"/>
+            <circle cx="50" cy="50" r="20" fill="#F44336"/>
+            <circle cx="50" cy="50" r="8" fill="#212121"/>
+            
+            <!-- Pétalos texturizados -->
+            <path d="M50 20 Q70 15 80 30 Q75 40 65 45 Q70 35 50 30 Q30 35 35 45 Q25 40 20 30 Q30 15 50 20 Z" fill="#C62828" opacity="0.9"/>
+            <path d="M80 30 Q85 50 70 60 Q65 50 65 45 Q75 40 80 30 Z" fill="#B71C1C" opacity="0.8"/>
+            <path d="M20 30 Q15 50 30 60 Q35 50 35 45 Q25 40 20 30 Z" fill="#B71C1C" opacity="0.8"/>
+            <path d="M50 80 Q60 70 70 80 Q65 90 50 95 Q35 90 30 80 Q40 70 50 80 Z" fill="#E53935" opacity="0.7"/>
+        </svg>`;
+        
+        // Crear flores con diferentes variedades
+        function createRealisticFlowers() {
+            const flowerTypes = [roseSVG, tulipSVG, poppySVG];
+            
+            for (let i = 0; i < 60; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.style.left = `${Math.random() * 100}%`;
+                flower.style.bottom = `${Math.random() * 15}%`;
+                flower.style.width = `${40 + Math.random() * 50}px`;
+                flower.style.animation = `gentleSway ${4 + Math.random() * 5}s infinite ease-in-out`;
+                flower.style.animationDelay = `${Math.random() * 6}s`;
+                flower.style.opacity = `${0.8 + Math.random() * 0.2}`;
+                
+                // Seleccionar tipo de flor aleatoria
+                const randomFlower = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+                flower.innerHTML = randomFlower;
+                
+                flowerField.appendChild(flower);
+            }
+        }
+        
+        // Corazones flotantes
+        function createFloatingHearts() {
+            const container = document.getElementById('floating-hearts');
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤';
+            heart.style.position = 'absolute';
+            heart.style.left = `${Math.random() * 100}%`;
+            heart.style.fontSize = `${18 + Math.random() * 25}px`;
+            heart.style.color = `rgba(255, ${Math.floor(50 + Math.random() * 100)}, ${Math.floor(50 + Math.random() * 100)}, ${0.6 + Math.random() * 0.3})`;
+            heart.style.animation = `floatUp ${8 + Math.random() * 7}s linear infinite`;
+            heart.style.animationDelay = `${Math.random() * 5}s`;
+            container.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 15000);
+        }
+        
+        // Cargar fotos
+        function loadPhotos() {
+            const gallery = document.getElementById('photo-gallery');
+            const photos = ['foto1.jpeg', 'foto2.jpeg', 'foto3.jpeg']; // Reemplaza con tus archivos
+            
+            photos.forEach(photo => {
+                const frame = document.createElement('div');
+                frame.className = 'photo-frame';
+                
+                const img = document.createElement('img');
+                img.className = 'photo';
+                img.src = photo;
+                img.alt = "Nuestros momentos especiales";
+                
+                frame.appendChild(img);
+                gallery.appendChild(frame);
+            });
+        }
+        
+        // Inicializar
+        window.onload = function() {
+            createRealisticFlowers();
+            setInterval(createFloatingHearts, 400);
+            loadPhotos();
+            
+            // Crear pétalos flotantes adicionales
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const petal = document.createElement('div');
+                    petal.className = 'petal';
+                    petal.style.width = `${10 + Math.random() * 20}px`;
+                    petal.style.height = `${10 + Math.random() * 20}px`;
+                    petal.style.left = `${Math.random() * 100}%`;
+                    petal.style.top = `${Math.random() * 100}%`;
+                    petal.style.background = `rgba(255, ${Math.floor(200 + Math.random() * 55)}, ${Math.floor(200 + Math.random() * 55)}, ${0.4 + Math.random() * 0.4})`;
+                    petal.style.animationDuration = `${15 + Math.random() * 20}s`;
+                    document.body.appendChild(petal);
+                }, Math.random() * 3000);
+            }
+        };
+    </script>
+</body>
+</html>
